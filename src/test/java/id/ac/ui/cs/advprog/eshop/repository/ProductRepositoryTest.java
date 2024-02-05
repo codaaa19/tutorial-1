@@ -27,7 +27,7 @@ public class ProductRepositoryTest {
     void testCreateAndFind() {
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        product.setProductName("Product 1");
+        product.setProductName("Sampo Cap Bambang");
         product.setProductQuantity(100);
         productRepository.create(product);
 
@@ -50,13 +50,13 @@ public class ProductRepositoryTest {
     void testFindAllIfMoreThanOneProduct() {
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        product1.setProductName("Product 1");
+        product1.setProductName("Sampo Cap Bambang");
         product1.setProductQuantity(100);
         productRepository.create(product1);
 
         Product product2 = new Product();
         product2.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd7");
-        product2.setProductName("Product 2");
+        product2.setProductName("Sampo Cap Usep");
         product2.setProductQuantity(200);
         productRepository.create(product2);
 
