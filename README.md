@@ -17,3 +17,16 @@ Nama function dibuat dengan sejelas mungkin sesuai dengan porsi dan tujuannya da
 
 Saat ID product yang akan saya edit tidak berfungsi sehingga saya beralih menggunakan UUID dan pada saat yang bersamaan
 juga saya tidak dapat parse ID untuk form edit sehingga saya menambahkan hidden input untuk dapat memaksimalkan fitur edit
+
+## Exercise 2
+
+## (1)
+Setelah melakukan testing, saya merasa lebih aman karena dengan dilakukannya testing, saya menjadi yakin bahwa program
+yang saya buat berjalan sesuai fungsinya.
+
+- Kuantitas dari banyaknya testing seharusnya tidak dibatasi. Akan tetapi akan lebih baik jika testing lebih sedikit agar lebih efisien
+- Walaupun 100%, code belum sepenuhnya terhindar dari bug. Testing tidak menjamin bahwa code bebas dari bug.
+
+## (2)
+Menurut saya, jika saya membuat function testing yang mirip dengan yang sudah ditulis sebelumnya, maka function
+akan menjadi kurang efisien dari segi cleanliness code dan potensi terkena bug dapat menjadi meningkat.
