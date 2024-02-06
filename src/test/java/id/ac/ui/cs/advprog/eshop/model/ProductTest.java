@@ -13,7 +13,7 @@ public class ProductTest {
     void setUp() {
         this.product = new Product();
         this.product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        this.product.setProductName("Product 1");
+        this.product.setProductName("Sampo Cap Bambang");
         this.product.setProductQuantity(100);
     }
 
@@ -24,7 +24,7 @@ public class ProductTest {
 
     @Test
     void testGetProductName() {
-        assertEquals("Product 1", this.product.getProductName());
+        assertEquals("Sampo Cap Bambang", this.product.getProductName());
     }
 
     @Test
