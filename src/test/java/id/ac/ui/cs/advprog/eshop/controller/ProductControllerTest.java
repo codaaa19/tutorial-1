@@ -106,7 +106,4 @@ class ProductControllerTest {
                 .andExpect(view().name("EditProduct"))
                 .andExpect(model().attributeExists("product"));
     }
-
-
-
 }

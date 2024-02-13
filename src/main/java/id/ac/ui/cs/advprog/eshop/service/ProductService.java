@@ -9,5 +9,5 @@ public interface ProductService {
     boolean delete(Product product);
     Product get(String id);
     Product edit(Product product);
-     List<Product> findAll();
+    List<Product> findAll();
 }
