@@ -18,7 +18,6 @@ public class ProductRepositoryTest {
 
     @InjectMocks
     ProductRepository productRepository;
-
     @BeforeEach
     void setUp() {
     }
@@ -42,6 +41,52 @@ public class ProductRepositoryTest {
 
     @Test
     void testFindAllIfEmpty() {
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    public void testEditProduct() {
+        // Create a new product
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("TESTING");
+        product.setProductQuantity(1);
+
+        Product createdProduct = productRepository.create(product);
+
+        String editedName = "Test";
+        int editedQuantity = 2;
+        createdProduct.setProductName(editedName);
+        createdProduct.setProductQuantity(editedQuantity);
+        productRepository.edit(createdProduct);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        Product editedProduct = null;
+        while (productIterator.hasNext()) {
+            Product curProduct = productIterator.next();
+            if (curProduct.getProductId().equals(createdProduct.getProductId())) {
+                editedProduct = curProduct;
+                break;
+            }
+        }
+
+        assertNotNull(editedProduct);
+        assertEquals(editedProduct.getProductName(), editedName);
+        assertEquals(editedProduct.getProductQuantity(), editedQuantity);
+    }
+
+    @Test
+    void testDelete() {
+        // Create a new product
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("TESTING");
+        product.setProductQuantity(1);
+        Product createdProduct = productRepository.create(product);
+
+        productRepository.delete(createdProduct);
+
         Iterator<Product> productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
