@@ -1,3 +1,14 @@
+
+## TUTORIAL 2
+
+1. - Code quality issue yang saya fix terdapat pada penggunaan camel case di return value. Menjadi HomePage dan ProductList
+   - Menghapus 'public' pada function.
+
+2. 
+
+
+## TUTORIAL 1
+
 ## Exercise 1
 
 ## Clean Code Principle :
@@ -30,3 +41,4 @@ yang saya buat berjalan sesuai fungsinya.
 ## (2)
 Menurut saya, jika saya membuat function testing yang mirip dengan yang sudah ditulis sebelumnya, maka function
 akan menjadi kurang efisien dari segi cleanliness code dan potensi terkena bug dapat menjadi meningkat.
+
