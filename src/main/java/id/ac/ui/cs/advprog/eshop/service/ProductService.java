@@ -5,9 +5,9 @@ import java.util.List;
 //tambahin sesuai kebutuhan
 
 public interface ProductService {
-    public Product create(Product product);
-    public boolean delete(Product product);
-    public Product get(String id);
-    public Product edit(Product product);
-    public List<Product> findAll();
+    Product create(Product product);
+    boolean delete(Product product);
+    Product get(String id);
+    Product edit(Product product);
+    List<Product> findAll();
 }
