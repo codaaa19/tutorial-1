@@ -4,7 +4,14 @@
 1. - Code quality issue yang saya fix terdapat pada penggunaan camel case di return value. Menjadi HomePage dan ProductList
    - Menghapus 'public' pada function.
 
-2. 
+2. Menurut saya, penerapan yang sudah saya terapkan sudah memenuhi konsep CI/CD.
+Dengan menggunakan Github Workflows, setiap adanya pembaruan yang kita terapkan pada github, 
+akan terjadi CI dengan dilakukannya uji coba dan CD dengan deployment. Untuk detailnya, dilakukan test setiap adanya perubahan pada 'ci.yml' dan akan 
+dicek kebersihan codenya dengan 'pmd.yml' dan 'scorecard.yml'. Setelah melalui tahap tersebut, proyek akan dimerge dan redeploy kembali oleh Koyeb.
+
+## BONUS
+
+
 
 
 ## TUTORIAL 1
