@@ -11,9 +11,6 @@ dicek kebersihan codenya dengan 'pmd.yml' dan 'scorecard.yml'. Setelah melalui t
 
 ## BONUS
 
-
-
-
 ## TUTORIAL 1
 
 ## Exercise 1
