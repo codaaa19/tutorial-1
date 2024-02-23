@@ -1,3 +1,25 @@
+## TUTORIAL 3
+
+Saya hanya mengaplikasikan 3 principle yang ada :
+
+1. SSR
+Memisahkan CarController dan ProductController agar tiap class hanya menghandle class nya sendiri
+
+2. DIP
+Tidak menggunakan interface konkrit sehingga pemisahan CarController dan ProductController juga termasuk kedalamnya
+
+3. OCP
+Terdapat persamaan antara CarRepository dan ProductRepository sehingga saya membuat general interface
+yang dapat digunakan oleh Car dan juga Product.
+
+## KELEBIHAN SOLID PRINCIPLE
+1. Membuat debugging dan pembacaan program menjadi lebih mudah dan efisien.
+2. Pemecahan pada penerapan saya sebelumnya membuatnya lebih jelas dalam penerapan code.
+3. Penambahan dan pengurangan fitur menjadi lebih mudah untuk dikelola.
+
+## KEKURANGAN SOLID PRINCIPLE
+1. Sangat berpotensi untuk merombak sebagian besar code dikarenakan satu code dengan yang lain saling berhubungan.
+2. Membutuhkan waktu tambahan untuk dapat mengerti serta memahami perbaikan code.
 
 ## TUTORIAL 2
 
@@ -10,7 +32,7 @@ akan terjadi CI dengan dilakukannya uji coba dan CD dengan deployment. Untuk det
 dicek kebersihan codenya dengan 'pmd.yml' dan 'scorecard.yml'. Setelah melalui tahap tersebut, proyek akan dimerge dan redeploy kembali oleh Koyeb.
 
 ## BONUS
-
+(90% :(( )
 ## TUTORIAL 1
 
 ## Exercise 1
