@@ -22,24 +22,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean delete(Product product){
-        if(product != null) {
-            return productRepository.delete(product);
-        }
-        return false;
+    public Product delete(String productId){
+        return productRepository.delete(productId);
     }
     @Override
     public Product get(String id) {
         Product productValid = null;
-        Iterator<Product> products = productRepository.findAll();
-        while (products.hasNext()) {
-            Product tmp = products.next();
-            if (tmp.getProductId().equals(id)){
-                productValid = tmp;
-                break;
+        List<Product> products = productRepository.findAll();
+        for (Product curP : products){
+            if(curP.getProductId().equals(id)){
+                return curP;
             }
         }
-        return productValid;
+        return null;
     }
 
     @Override
@@ -50,9 +45,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> findAll() {
-        Iterator<Product> productIterator = productRepository.findAll();
-        List<Product> allProduct = new ArrayList<>();
-        productIterator.forEachRemaining(allProduct::add);
-        return allProduct;
+        return productRepository.findAll();
     }
 }
