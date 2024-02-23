@@ -10,7 +10,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/car")
-public class CarController {
+public class CarController{
     @Autowired
     private CarService carService;
 
@@ -31,14 +31,14 @@ public class CarController {
     public String listCarPage(Model model){
         List<Car> allCars = carService.findAll();
         model.addAttribute("cars", allCars);
-        return "listCar";
+        return "CarList";
     }
 
     @GetMapping(value="/editCar/{carId}")
     public String editProductPage(Model model, @PathVariable("carId") String productId){
         Car car = carService.findById(productId);
         model.addAttribute("car", car);
-        return "editcar";
+        return "EditCar";
     }
 
     @PostMapping("/editCar")
