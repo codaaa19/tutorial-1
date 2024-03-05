@@ -44,7 +44,7 @@ public class Payment {
         this.order = order;
     }
 
-    protected void setPaymentData(Map<String, String> paymentData) {
+    public void setPaymentData(Map<String, String> paymentData) {
         if (PaymentMethod.contains(this.method)) {
             throw new IllegalArgumentException(
                     "Cannot set method-specific payment data for non-method-specific payment"
