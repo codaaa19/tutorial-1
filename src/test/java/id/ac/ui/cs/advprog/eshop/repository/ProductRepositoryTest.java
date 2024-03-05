@@ -30,7 +30,7 @@ public class ProductRepositoryTest {
         product.setProductQuantity(100);
         productRepository.create(product);
 
-        Iterator<Product> productIterator = productRepository.findAll();
+        List<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
 
         Product savedProduct = productIterator.next();
@@ -41,7 +41,7 @@ public class ProductRepositoryTest {
 
     @Test
     void testFindAllIfEmpty() {
-        Iterator<Product> productIterator = productRepository.findAll();
+        List<Product> productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
 
@@ -61,7 +61,7 @@ public class ProductRepositoryTest {
         createdProduct.setProductQuantity(editedQuantity);
         productRepository.edit(createdProduct);
 
-        Iterator<Product> productIterator = productRepository.findAll();
+        List<Product> productIterator = productRepository.findAll();
         Product editedProduct = null;
         while (productIterator.hasNext()) {
             Product curProduct = productIterator.next();
@@ -85,9 +85,9 @@ public class ProductRepositoryTest {
         product.setProductQuantity(1);
         Product createdProduct = productRepository.create(product);
 
-        productRepository.delete(createdProduct);
+        productRepository.delete(createdProduct.getProductId());
 
-        Iterator<Product> productIterator = productRepository.findAll();
+        List<Product> productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
     }
 
@@ -105,7 +105,7 @@ public class ProductRepositoryTest {
         product2.setProductQuantity(200);
         productRepository.create(product2);
 
-        Iterator<Product> productIterator = productRepository.findAll();
+        List<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
 
         Product savedProduct = productIterator.next();

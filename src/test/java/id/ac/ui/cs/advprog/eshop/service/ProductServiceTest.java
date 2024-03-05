@@ -50,12 +50,12 @@ public class ProductServiceTest {
         product.setProductName("TESTING");
         product.setProductQuantity(1);
 
-        when(productRepository.delete(product)).thenReturn(true);
+        when(productRepository.delete(product.getProductId())).thenReturn(true);
 
-        boolean isDeleted = productService.delete(product);
+        boolean isDeleted = productService.delete(product.getProductId());
 
         assertEquals(true, isDeleted);
-        verify(productRepository, times(1)).delete(product);
+        verify(productRepository, times(1)).delete(product.getProductId());
 
     }
 
