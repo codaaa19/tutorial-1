@@ -30,10 +30,19 @@ public class ProductRepositoryTest {
         product.setProductQuantity(100);
         productRepository.create(product);
 
-        List<Product> productIterator = productRepository.findAll();
-        assertTrue(productIterator.hasNext());
+        List<Product> productList = productRepository.findAll();
+        assertFalse(productList.isEmpty()); // Check if the list is not empty
 
-        Product savedProduct = productIterator.next();
+        // Iterate over the list to find the saved product
+        Product savedProduct = null;
+        for (Product p : productList) {
+            if (p.getProductId().equals(product.getProductId())) {
+                savedProduct = p;
+                break;
+            }
+        }
+
+        assertNotNull(savedProduct); // Check if the saved product is not null
         assertEquals(product.getProductId(), savedProduct.getProductId());
         assertEquals(product.getProductName(), savedProduct.getProductName());
         assertEquals(product.getProductQuantity(), savedProduct.getProductQuantity());
@@ -41,9 +50,10 @@ public class ProductRepositoryTest {
 
     @Test
     void testFindAllIfEmpty() {
-        List<Product> productIterator = productRepository.findAll();
-        assertFalse(productIterator.hasNext());
+        List<Product> productList = productRepository.findAll();
+        assertTrue(productList.isEmpty());
     }
+
 
     @Test
     public void testEditProduct() {
@@ -61,12 +71,13 @@ public class ProductRepositoryTest {
         createdProduct.setProductQuantity(editedQuantity);
         productRepository.edit(createdProduct);
 
-        List<Product> productIterator = productRepository.findAll();
+        List<Product> productList = productRepository.findAll();
         Product editedProduct = null;
-        while (productIterator.hasNext()) {
-            Product curProduct = productIterator.next();
-            if (curProduct.getProductId().equals(createdProduct.getProductId())) {
-                editedProduct = curProduct;
+
+        // Iterate over the list to find the edited product
+        for (Product p : productList) {
+            if (p.getProductId().equals(createdProduct.getProductId())) {
+                editedProduct = p;
                 break;
             }
         }
@@ -75,6 +86,7 @@ public class ProductRepositoryTest {
         assertEquals(editedProduct.getProductName(), editedName);
         assertEquals(editedProduct.getProductQuantity(), editedQuantity);
     }
+
 
     @Test
     void testDelete() {
@@ -87,9 +99,10 @@ public class ProductRepositoryTest {
 
         productRepository.delete(createdProduct.getProductId());
 
-        List<Product> productIterator = productRepository.findAll();
-        assertFalse(productIterator.hasNext());
+        List<Product> productList = productRepository.findAll();
+        assertTrue(productList.isEmpty());
     }
+
 
     @Test
     void testFindAllIfMoreThanOneProduct() {
@@ -105,13 +118,21 @@ public class ProductRepositoryTest {
         product2.setProductQuantity(200);
         productRepository.create(product2);
 
-        List<Product> productIterator = productRepository.findAll();
-        assertTrue(productIterator.hasNext());
+        List<Product> productList = productRepository.findAll();
+        assertFalse(productList.isEmpty()); // Check if the list is not empty
 
-        Product savedProduct = productIterator.next();
-        assertEquals(product1.getProductId(), savedProduct.getProductId());
-        savedProduct = productIterator.next();
-        assertEquals(product2.getProductId(), savedProduct.getProductId());
-        assertFalse(productIterator.hasNext());
+        // Iterate over the list and compare the products
+        for (Product p : productList) {
+            if (p.getProductId().equals(product1.getProductId())) {
+                assertEquals(product1.getProductName(), p.getProductName());
+                assertEquals(product1.getProductQuantity(), p.getProductQuantity());
+            } else if (p.getProductId().equals(product2.getProductId())) {
+                assertEquals(product2.getProductName(), p.getProductName());
+                assertEquals(product2.getProductQuantity(), p.getProductQuantity());
+            } else {
+                fail("Unexpected product found in the list");
+            }
+        }
     }
+
 }
