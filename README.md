@@ -1,3 +1,21 @@
+## TUTORIAL 4
+
+## Refleksi Terhadap TDD
+Saya merasa metode TDD kurang efisien atau mungkin karna ini merupakan kali pertama saya membuat testing terlebih dahulu, saya merasa
+kesusahan untuk membuat codenya. Akan tetapi, hal tersebut dapat menurunkan potensi kesalahan pada program yang saya buat. Saya masih
+prefer menggunakan metode sebelumnya😁.
+
+## FIRST
+- F = Fast -> Sudah dihandle karna unit test berjalan tanpa mengganggu workflow serta adanya pemisahan antara unit test dan functional test.
+- I = Isolated -> Tiap test sudah bersifat independent.
+- R = Repeatable -> Unit test sudah dibuat untuk dapat dipakai secara berulang.
+- S = Self-Validating -> Sudah karna dapat melihat kesalahan pada program.
+- T = Timely -> Sudah dihandle dengan memasukan semua case pada testing.
+
+
+
+
+
 
 ## TUTORIAL 3
 

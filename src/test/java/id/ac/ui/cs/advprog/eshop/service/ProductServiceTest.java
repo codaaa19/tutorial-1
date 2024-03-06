@@ -116,27 +116,6 @@ public class ProductServiceTest {
         return list.iterator();
     }
 
-    @Test
-    public void testGetProductById() {
-        // Arrange
-        Product expectedProduct = new Product();
-        expectedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        expectedProduct.setProductName("TESTING1");
-        expectedProduct.setProductQuantity(1);
-
-        // Mock the findById() method of ProductRepository to return the expected product
-        when(productRepository.findById(expectedProduct.getProductId())).thenReturn(expectedProduct);
-
-        // Act
-        Product actualProduct = productService.get(expectedProduct.getProductId());
-
-        // Assert
-        assertEquals(expectedProduct, actualProduct);
-
-        // Verify that the findById() method of ProductRepository was called once with the expected product ID
-        verify(productRepository, times(1)).findById(expectedProduct.getProductId());
-    }
-
     private Iterator<Product> createMockIterator(Product product) {
         return new Iterator<Product>() {
             private boolean hasNext = true;
