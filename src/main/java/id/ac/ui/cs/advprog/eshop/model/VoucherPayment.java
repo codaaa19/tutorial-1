@@ -47,6 +47,7 @@ public class VoucherPayment extends Payment {
             }
         }
         return numericCount;
+
     }
 
     private long numericsInVoucherCounter(String voucherCode) {
