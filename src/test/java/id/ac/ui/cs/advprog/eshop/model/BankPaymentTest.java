@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BankPaymentTest {
     Map<String, String> paymentData;
-    private Order order;
-    private List<Product> products;
+    Order order;
+    List<Product> products;
 
     @BeforeEach
     void setup() {
