@@ -1,8 +1,5 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class BankPaymentTest {
     Map<String, String> paymentData;
