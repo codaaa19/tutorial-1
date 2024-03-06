@@ -50,7 +50,6 @@ public class Payment {
                     "Cannot set method-specific payment data for non-method-specific payment"
             );
         }
-
         this.paymentData = null;
     }
 }
