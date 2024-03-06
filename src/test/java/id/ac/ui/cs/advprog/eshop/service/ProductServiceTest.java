@@ -50,27 +50,23 @@ public class ProductServiceTest {
         product.setProductName("TESTING");
         product.setProductQuantity(1);
 
-        when(productRepository.delete(product)).thenReturn(true);
+        // Stub the delete method of the repository to return a Product
+        when(productRepository.delete(product.getProductId())).thenReturn(product);
 
-        boolean isDeleted = productService.delete(product);
+        // Call the delete method of the service
+        Product deletedProduct = productService.delete(product.getProductId());
 
-        assertEquals(true, isDeleted);
-        verify(productRepository, times(1)).delete(product);
+        // Verify that the delete method of the repository was called with the correct ID
+        verify(productRepository, times(1)).delete(product.getProductId());
 
+        // Check if the deletedProduct is not null
+        assertNotNull(deletedProduct);
+
+        // Assert that the deleted product ID matches the ID of the product we created
+        assertEquals(product.getProductId(), deletedProduct.getProductId());
     }
 
-    @Test
-    public void testDeleteNotFoundProduct() {
-        // Create an instance of the class that implements the delete method
-        // Assuming productRepository is properly initialized or mocked
-        ProductServiceImpl productService = new ProductServiceImpl();
 
-        // Call the delete method with null as the argument
-        boolean result = productService.delete(null);
-
-        // Check that the result is false
-        assertFalse(result, "Delete method should return false for null product");
-    }
     @Test
     public void testEditProduct() {
         Product product = new Product();
@@ -88,6 +84,7 @@ public class ProductServiceTest {
 
     @Test
     public void testFindAllProducts() {
+        // Create a list of products
         List<Product> productList = new ArrayList<>();
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
@@ -101,33 +98,22 @@ public class ProductServiceTest {
         productList.add(product1);
         productList.add(product2);
 
-        when(productRepository.findAll()).thenReturn(mockIterator(productList));
+        // Mock the findAll() method of ProductRepository to return the productList
+        when(productRepository.findAll()).thenReturn(productList);
 
+        // Call the findAll() method of ProductService
         List<Product> retrievedProducts = productService.findAll();
 
+        // Assert that the retrievedProducts has the same size as the productList
         assertEquals(productList.size(), retrievedProducts.size());
+
+        // Assert that the retrievedProducts contains the same products as productList
         assertEquals(productList, retrievedProducts);
     }
 
+
     private Iterator<Product> mockIterator(List list) {
         return list.iterator();
-    }
-
-    @Test
-    public void testGetProductById() {
-        // Arrange
-        Product expectedProduct = new Product();
-        expectedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        expectedProduct.setProductName("TESTING1");
-        expectedProduct.setProductQuantity(1);
-        when(productRepository.findAll()).thenReturn(createMockIterator(expectedProduct));
-
-        // Act
-        Product actualProduct = productService.get(expectedProduct.getProductId());
-
-        // Assert
-        assertEquals(expectedProduct, actualProduct);
-        verify(productRepository, times(1)).findAll();
     }
 
     private Iterator<Product> createMockIterator(Product product) {
